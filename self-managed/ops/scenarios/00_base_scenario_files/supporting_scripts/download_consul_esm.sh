@@ -64,8 +64,11 @@ PRODUCT="consul-esm"
 # || Begin           |
 # ++-----------------+
 
-## Creates binary bucker folder if it does not exist
+## Creates binary bucket folder if it does not exist
 mkdir -p ${OUTPUT_FOLDER}
+
+## Make sure folder is owned by the user (instruqt runs the scripts as root)
+chown ${_USER}: ${OUTPUT_FOLDER}
 
 ## Check if binary alredy exists
 if [ "${VERSION}" == "latest" ]; then
