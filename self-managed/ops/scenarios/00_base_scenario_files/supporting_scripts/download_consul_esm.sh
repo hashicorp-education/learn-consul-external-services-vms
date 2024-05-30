@@ -68,7 +68,7 @@ PRODUCT="consul-esm"
 mkdir -p ${OUTPUT_FOLDER}
 
 ## Make sure folder is owned by the user (instruqt runs the scripts as root)
-chown ${_USER}: ${OUTPUT_FOLDER}
+sudo chown ${_USER}: ${OUTPUT_FOLDER}
 
 ## Check if binary alredy exists
 if [ "${VERSION}" == "latest" ]; then
