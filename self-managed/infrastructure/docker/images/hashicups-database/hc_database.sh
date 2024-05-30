@@ -42,7 +42,9 @@ PATH=$PATH:/usr/lib/postgresql/${PSQL_VERSION}/bin
 ## -----------------------------------------------------------------------------
 echo "Stop pre-existing instances."
 
-killall postgres >> ${LOGFILE} 2>&1 &
+## truncates the logfile at every restart. This prevents issues with DB restarts.
+
+killall postgres > ${LOGFILE} 2>&1 &
 rm -rf ${PGDATA}/*
 
 ## -----------------------------------------------------------------------------
